@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>InovaHub — Soluções Digitais com IA para Lojas e Empresas</title>
+  <meta name="description" content="InovaHub: branding, fotos, landing pages, social media, performance e soluções com IA para acelerar vendas de lojas e empresas." />
+  <meta name="theme-color" content="#ff4d2d" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="InovaHub — Soluções Digitais com IA" />
+  <meta property="og:description" content="Branding, criativos, sites, automações e IA para o seu negócio." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://dummyimage.com/1200x630/fdba74/0b0b0b&text=InovaHub" />
+  <style>
+    :root{
+      --bg:#0b0b0b;             /* Fundo quase preto */
+      --fg:#f9fafb;             /* Texto claro */
+      --muted:#a1a1aa;          /* Texto secundário */
+      --brand-1:#ff4d2d;        /* Vermelho vivo */
+      --brand-2:#ff8a00;        /* Laranja */
+      --brand-3:#ffd60a;        /* Amarelo */
+      --card:#111214;           /* Cartões */
+      --stroke:#1f1f22;         /* Bordas sutis */
+      --success:#22c55e;
+      --warn:#f59e0b;
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --radius: 20px;
+    }
+
+    /* Reset básico */
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; color:var(--fg); background:var(--bg);
+      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+      overflow-x:hidden;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    h1,h2,h3{line-height:1.15; margin:0 0 .5rem}
+
+    /* Navegação */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: linear-gradient(180deg, rgba(0,0,0,.6), rgba(0,0,0,.2));
+      border-bottom:1px solid var(--stroke);
+    }
+    .nav .wrap{
+      max-width:1200px; margin:0 auto; padding:.75rem 1rem; display:flex; align-items:center; gap:1rem;
+    }
+    .logo{
+      display:flex; align-items:center; gap:.6rem; font-weight:800; letter-spacing:.5px;
+    }
+    .logo-mark{
+      width:34px;height:34px;border-radius:10px;position:relative;overflow:hidden;box-shadow:var(--shadow);
+      background: conic-gradient(from 180deg, var(--brand-1), var(--brand-2), var(--brand-3), var(--brand-1));
+      animation: spin 12s linear infinite;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .nav a.btn{
+      margin-left:auto; padding:.6rem .9rem; border:1px solid var(--stroke); border-radius:12px; transition: .25s ease transform, .25s ease background;
+    }
+    .nav a.btn:hover{transform: translateY(-2px); background:#141416}
+    .nav .links{display:flex; gap:1rem; flex-wrap:wrap}
+    .nav .links a{opacity:.85}
+    .nav .links a:hover{opacity:1}
+
+    /* Hero */
+    .hero{
+      position:relative; overflow:hidden; border-bottom:1px solid var(--stroke);
+      background: radial-gradient(1200px 600px at 70% -10%, rgba(255,214,10,.25), transparent 60%),
+                  radial-gradient(900px 500px at -10% 20%, rgba(255,77,45,.18), transparent 60%),
+                  radial-gradient(800px 600px at 120% 120%, rgba(255,138,0,.24), transparent 60%),
+                  linear-gradient(180deg, #0b0b0b 0%, #0b0b0b 100%);
+    }
+    .hero .wrap{max-width:1200px;margin:0 auto;padding:7rem 1rem 5rem;display:grid;grid-template-columns:1.2fr .8fr;gap:2rem}
+    .hero h1{font-size:clamp(2.2rem, 3.3vw + 1rem, 4rem)}
+    .hero p{font-size:1.125rem;color:#e5e7eb;max-width:55ch}
+    .badge{
+      display:inline-flex;align-items:center;gap:.5rem;padding:.35rem .6rem;border:1px solid var(--stroke);border-radius:999px;font-size:.9rem;opacity:.95;background:#0f0f10
+    }
+    .cta-row{display:flex;gap:.75rem;margin-top:1rem;flex-wrap:wrap}
+    .btn{
+      padding:.9rem 1.1rem;border-radius:14px;border:1px solid var(--stroke);background:#131313;display:inline-flex;gap:.5rem;align-items:center;cursor:pointer;transition:.25s ease transform,.25s ease background;
+    }
+    .btn:hover{transform:translateY(-2px);background:#191919}
+    .btn.primary{
+      background: linear-gradient(135deg, var(--brand-1), var(--brand-2));
+      border:0; color:#1a1a1a; font-weight:800; box-shadow: 0 8px 24px rgba(255,118,27,.25);
+    }
+    .btn.ghost{background:transparent}
+
+    /* Cards de destaque */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:1rem}
+    .card{
+      grid-column: span 4; background:linear-gradient(180deg,#111214,#0f0f10); border:1px solid var(--stroke); padding:1rem; border-radius:var(--radius); box-shadow:var(--shadow); position:relative; overflow:hidden
+    }
+    .card:hover{transform: translateY(-3px)}
+    .card h3{margin:.25rem 0}
+    .chip{display:inline-block; padding:.25rem .55rem; border-radius:999px; background:#151515; border:1px solid var(--stroke); font-size:.8rem; color:#ddd}
+
+    /* Seções */
+    section{scroll-margin-top:80px}
+    .section{max-width:1200px;margin:0 auto;padding:5rem 1rem}
+    .section h2{font-size:clamp(1.6rem, 1.6vw + 1rem, 2.2rem); margin-bottom:.65rem}
+    .section p.lead{color:#e8e8e8; opacity:.92; max-width:75ch}
+
+    /* Steps */
+    .steps{display:grid;grid-template-columns:repeat(4,1fr); gap:1rem;margin-top:1rem}
+    .step{background:#111214;border:1px solid var(--stroke);border-radius:16px;padding:1rem}
+    .step h4{margin:0 0 .25rem}
+
+    /* FAQ */
+    .faq .item{border-top:1px solid var(--stroke)}
+    .faq .q{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem 0;cursor:pointer}
+    .faq .a{max-height:0; overflow:hidden; transition:max-height .35s ease}
+    .faq .item.open .a{max-height:200px}
+
+    /* Rodapé */
+    footer{border-top:1px solid var(--stroke); background:#0a0a0a}
+
+    /* Chatbot */
+    .chat-launch{
+      position:fixed; right:16px; bottom:16px; z-index:60;
+      display:flex; align-items:center; gap:.6rem;
+    }
+    .chat-launch .bubble{ padding:.8rem 1rem; border-radius:16px; background: linear-gradient(135deg, rgba(255,77,45,.95), rgba(255,138,0,.95)); color:#141414; font-weight:800; border:1px solid rgba(255,255,255,.2)}
+    .chat-launch button{border:0;cursor:pointer;border-radius:999px;width:56px;height:56px;background:linear-gradient(135deg,var(--brand-1),var(--brand-2)); box-shadow:0 10px 20px rgba(255,77,45,.3)}
+
+    .chat{position:fixed; right:16px; bottom:86px; width:min(380px, calc(100% - 32px)); background:#0f0f10; border:1px solid var(--stroke); border-radius:18px; box-shadow:var(--shadow); display:none; flex-direction:column; overflow:hidden; z-index:60}
+    .chat header{display:flex;align-items:center;gap:.6rem;padding:.8rem;border-bottom:1px solid var(--stroke); background:#101113}
+    .status{font-size:.8rem; color:var(--muted)}
+    .chat .log{height:300px; overflow:auto; display:flex; flex-direction:column; gap:.5rem; padding:1rem}
+    .msg{max-width:85%; padding:.6rem .8rem; border-radius:14px; border:1px solid var(--stroke); background:#131417}
+    .msg.ai{ background:linear-gradient(180deg, #131417, #101113)}
+    .msg.user{ align-self:flex-end; background:#15161a}
+    .chat form{display:flex;gap:.5rem;padding:.6rem;border-top:1px solid var(--stroke)}
+    .chat input{flex:1;border:1px solid var(--stroke);background:#0e0f11;color:var(--fg);padding:.7rem;border-radius:12px}
+    .chat button{padding:.7rem 1rem;border-radius:12px;background:linear-gradient(135deg, var(--brand-2), var(--brand-3)); color:#141414; border:0; font-weight:800}
+
+    /* Utilidades */
+    .wrap-narrow{max-width:900px;margin:0 auto}
+    .muted{color:var(--muted)}
+    .pill{display:inline-flex; align-items:center; gap:.4rem; padding:.25rem .55rem; border-radius:999px; border:1px solid var(--stroke); background:#121214; font-size:.8rem}
+    .divider{height:1px;background:var(--stroke);margin:1rem 0}
+
+    /* Responsivo */
+    @media (max-width: 960px){
+      .hero .wrap{grid-template-columns:1fr}
+      .grid .card{grid-column: span 6}
+      .steps{grid-template-columns:repeat(2,1fr)}
+    }
+    @media (max-width: 640px){
+      .grid .card{grid-column: span 12}
+      .steps{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegação -->
+  <nav class="nav">
+    <div class="wrap">
+      <div class="logo" aria-label="InovaHub">
+        <div class="logo-mark" aria-hidden="true"></div>
+        <span>InovaHub</span>
+      </div>
+      <div class="links" role="navigation" aria-label="principal">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#como-atuamos">Como Atuamos</a>
+        <a href="#cases">Cases</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <a class="btn" href="https://instagram.com/inovahubbr" target="_blank" rel="noopener">Instagram @inovahubbr</a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="wrap">
+      <div>
+        <span class="badge">🚀 Soluções digitais com IA para lojas e empresas</span>
+        <h1>Criação, Performance e Automação para <span style="background: linear-gradient(90deg, var(--brand-1), var(--brand-2), var(--brand-3)); -webkit-background-clip:text; background-clip:text; color:transparent">acelerar vendas</span>.</h1>
+        <p>
+          A InovaHub nasceu para simplificar o digital: identidade visual, fotos que vendem, landing pages rápidas, social media, anúncios e automações com IA. Tudo pensado para quem quer resultado — seja loja física, e‑commerce, restaurante, clínica ou prestador de serviço.
+        </p>
+        <div class="cta-row">
+          <a class="btn primary" href="#servicos">Ver serviços</a>
+          <a class="btn ghost" href="#como-atuamos">Como usamos IA</a>
+        </div>
+        <div class="divider"></div>
+        <div class="grid">
+          <div class="card" aria-label="Destaque 1">
+            <span class="chip">Branding</span>
+            <h3>Marca que posiciona</h3>
+            <p class="muted">Logo, cores, tipografia e guias prontos para escalar sua presença.</p>
+          </div>
+          <div class="card" aria-label="Destaque 2">
+            <span class="chip">Web</span>
+            <h3>Sites e Landing Pages</h3>
+            <p class="muted">Páginas rápidas, responsivas e otimizadas para conversão.</p>
+          </div>
+          <div class="card" aria-label="Destaque 3">
+            <span class="chip">IA + Mídia</span>
+            <h3>Conteúdo que vende</h3>
+            <p class="muted">Criativos, roteiros, fotos e vídeos aprimorados com IA.</p>
+          </div>
+        </div>
+      </div>
+      <aside>
+        <svg viewBox="0 0 500 500" role="img" aria-label="Elemento visual" style="width:100%; filter: drop-shadow(0 20px 50px rgba(255,138,0,.2))">
+          <defs>
+            <linearGradient id="g1" x1="0" x2="1">
+              <stop offset="0%" stop-color="#ff4d2d"/>
+              <stop offset="60%" stop-color="#ff8a00"/>
+              <stop offset="100%" stop-color="#ffd60a"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#g1)">
+            <animate attributeName="d" dur="12s" repeatCount="indefinite" values="
+              M437,298Q416,346,380,380Q344,414,297,433Q250,452,201,437Q152,422,110,392Q68,362,61,306Q54,250,68,197Q82,144,122,105Q162,66,206,47Q250,28,300,45Q350,62,387,98Q424,134,441,192Q458,250,437,298Z;
+              M429,303Q418,356,377,396Q336,436,293,430Q250,424,194,439Q138,454,104,408Q70,362,64,306Q58,250,86,204Q114,158,143,117Q172,76,211,66Q250,56,296,64Q342,72,382,103Q422,134,436,192Q450,250,429,303Z;
+              M437,298Q416,346,380,380Q344,414,297,433Q250,452,201,437Q152,422,110,392Q68,362,61,306Q54,250,68,197Q82,144,122,105Q162,66,206,47Q250,28,300,45Q350,62,387,98Q424,134,441,192Q458,250,437,298Z
+            "/>
+          </path>
+        </svg>
+      </aside>
+    </div>
+  </header>
+
+  <!-- Sobre -->
+  <section id="sobre" class="section wrap-narrow">
+    <h2>Por que a InovaHub nasceu?</h2>
+    <p class="lead">Acreditamos que pequenas e médias empresas merecem <strong>qualidade de agência</strong> sem burocracia. Unimos design, tecnologia e IA para acelerar decisões e reduzir custo de aquisição, com foco em <strong>brand + performance</strong>.</p>
+    <div class="steps" aria-label="pilares">
+      <div class="step"><h4>🎯 Foco em resultado</h4><p class="muted">Briefing objetivo, metas claras e execuções mensais que fazem diferença.</p></div>
+      <div class="step"><h4>⚡ Velocidade</h4><p class="muted">Processos enxutos e automações para entregar rápido, sem perder qualidade.</p></div>
+      <div class="step"><h4>🧠 IA aplicada</h4><p class="muted">Análise, criativos, copy, segmentação e atendimento com apoio de IA.</p></div>
+      <div class="step"><h4>🤝 Transparência</h4><p class="muted">Relatórios claros e comunicação direta. Sem letrinhas miúdas.</p></div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos" class="section">
+    <div class="wrap-narrow">
+      <h2>O que fazemos</h2>
+      <p class="lead">Atendemos lojas e empresas de todos os segmentos. Se você vende produto ou serviço, nós criamos o sistema visual e digital que faz seu negócio crescer.</p>
+    </div>
+
+    <div class="section" style="padding-top:1rem">
+      <div class="grid">
+        <article class="card" aria-label="Branding">
+          <h3>Identidade & Branding</h3>
+          <p class="muted">Logo, manual de marca, paleta, tipografia e kits para redes sociais.</p>
+        </article>
+        <article class="card" aria-label="Web">
+          <h3>Sites & Landing Pages</h3>
+          <p class="muted">Arquitetura, copy, UI, dev e SEO técnico para alta velocidade e conversão.</p>
+        </article>
+        <article class="card" aria-label="Conteúdo">
+          <h3>Conteúdo & Criativos</h3>
+          <p class="muted">Ensaios fotográficos, tratamento com IA, vídeos curtos, roteiros e thumbnails.</p>
+        </article>
+        <article class="card" aria-label="Ads">
+          <h3>Tráfego & Performance</h3>
+          <p class="muted">Meta/Google Ads, funis, testes A/B, eventos e relatórios.</p>
+        </article>
+        <article class="card" aria-label="Social">
+          <h3>Social Media</h3>
+          <p class="muted">Calendário, design, copy e community management.</p>
+        </article>
+        <article class="card" aria-label="Automação">
+          <h3>Automação & Chat</h3>
+          <p class="muted">Fluxos de WhatsApp, integrações simples de IA e captação de leads.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Como atuamos com IA -->
+  <section id="como-atuamos" class="section wrap-narrow">
+    <h2>Como usamos IA a nosso favor — e a favor do cliente</h2>
+    <p class="lead">IA não substitui estratégia. Ela potencializa. Aplicamos modelos para acelerar pesquisa, gerar variações criativas, detectar padrões em relatórios e responder clientes em tempo real. O resultado? Entregas mais rápidas e campanhas mais inteligentes.</p>
+    <div class="steps" style="margin-top:1.5rem">
+      <div class="step"><h4>Pesquisa & Insights</h4><p class="muted">Mapeamento de categorias, benchmarks e oportunidades.</p></div>
+      <div class="step"><h4>Criação assistida</h4><p class="muted">Roteiros, copies e artes com apoio de IA — sempre com curadoria humana.</p></div>
+      <div class="step"><h4>Otimização contínua</h4><p class="muted">Teste A/B de headlines, CTAs e criativos, com aprendizado cíclico.</p></div>
+      <div class="step"><h4>Atendimento inteligente</h4><p class="muted">Chat básico para dúvidas e captação de leads direto no site.</p></div>
+    </div>
+  </section>
+
+  <!-- Cases (mock) -->
+  <section id="cases" class="section">
+    <div class="wrap-narrow">
+      <h2>Alguns resultados</h2>
+      <p class="lead">Exemplos reais variam por segmento. Aqui, alguns cenários comuns após 60 dias de trabalho ativo.</p>
+      <div class="grid" style="margin-top:1rem">
+        <div class="card"><h3>+38% conversão</h3><p class="muted">Landing page com copy focada em objeções e prova social.</p></div>
+        <div class="card"><h3>−26% CAC</h3><p class="muted">Testes A/B de criativos com IA e segmentação ajustada.</p></div>
+        <div class="card"><h3>+2,1× alcance</h3><p class="muted">Calendário social com conteúdos evergreen e picos sazonais.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section wrap-narrow faq">
+    <h2>Perguntas frequentes</h2>
+    <div class="item">
+      <div class="q"><strong>É só para lojas do iFood?</strong><span>+</span></div>
+      <div class="a"><p class="muted">Não. Atendemos lojas e empresas em geral: físicos, serviços, e‑commerce e marcas locais.</p></div>
+    </div>
+    <div class="item">
+      <div class="q"><strong>Tem planos fechados?</strong><span>+</span></div>
+      <div class="a"><p class="muted">Trabalhamos por escopo. Montamos um pacote ideal depois do diagnóstico gratuito.</p></div>
+    </div>
+    <div class="item">
+      <div class="q"><strong>Como funciona o atendimento por IA?</strong><span>+</span></div>
+      <div class="a"><p class="muted">Usamos um chatbot básico no site para triagem e captação. Casos complexos vão para o time humano.</p></div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section id="contato" class="section wrap-narrow">
+    <h2>Fale com a gente</h2>
+    <p class="lead">Do diagnóstico ao plano de ação, começamos com um papo curto. Se preferir, fale com a nossa IA abaixo ou toque no Instagram.</p>
+    <div class="steps" style="margin-top:1rem">
+      <div class="step"><h4>📩 Briefing rápido</h4><p class="muted">Você diz onde está e onde quer chegar.</p></div>
+      <div class="step"><h4>🧭 Roteiro de ação</h4><p class="muted">Priorizamos entregas para tração em até 30 dias.</p></div>
+      <div class="step"><h4>📊 Acompanhamento</h4><p class="muted">Relatórios, aprendizados e novos testes.</p></div>
+      <div class="step"><h4>📱 Instagram</h4><p class="muted"><a href="https://instagram.com/inovahubbr" target="_blank" rel="noopener">@inovahubbr</a></p></div>
+    </div>
+  </section>
+
+  <!-- Chatbot de atendimento simples -->
+  <div class="chat" id="chat" aria-live="polite" aria-label="Chat de atendimento InovaHub">
+    <header>
+      <div class="logo-mark" style="width:28px;height:28px"></div>
+      <div>
+        <strong>InovaHub AI (beta)</strong>
+        <div class="status">Responde dúvidas comuns. Para orçamento, deixe seu contato ou fale no Instagram.</div>
+      </div>
+    </header>
+    <div class="log" id="log">
+      <div class="msg ai">Olá! Sou a IA da InovaHub. Posso explicar serviços, prazos, como usamos IA e como começar. Pergunte algo 🙂</div>
+    </div>
+    <form id="chat-form">
+      <input id="chat-input" name="q" autocomplete="off" placeholder="Digite sua mensagem..." />
+      <button type="submit" aria-label="Enviar">Enviar</button>
+    </form>
+  </div>
+  <div class="chat-launch" aria-hidden="false">
+    <div class="bubble">Precisa de ajuda?</div>
+    <button id="open-chat" title="Abrir chat">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#141414" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 15a4 4 0 0 1-4 4H7l-4 4V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4z"/>
+      </svg>
+    </button>
+  </div>
+
+  <script>
+    // Navegação suave
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const href = a.getAttribute('href');
+        if(href && href.startsWith('#') && href.length>1){
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({behavior:'smooth'});
+        }
+      });
+    });
+
+    // FAQ acordeon
+    document.querySelectorAll('.faq .item .q').forEach(q=>{
+      q.addEventListener('click', ()=> q.parentElement.classList.toggle('open'));
+    });
+
+    // Efeitos de entrada com IntersectionObserver
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(el=>{
+        if(el.isIntersecting){
+          el.target.animate([
+            {opacity:0, transform:'translateY(12px)'},
+            {opacity:1, transform:'translateY(0)'}
+          ], {duration:500, easing:'ease-out', fill:'forwards'});
+          io.unobserve(el.target);
+        }
+      })
+    }, {threshold:.15})
+    document.querySelectorAll('.card, .step').forEach(el=> io.observe(el));
+
+    // Hover tilt nos cards
+    document.querySelectorAll('.card').forEach(card=>{
+      card.addEventListener('mousemove', (e)=>{
+        const r = card.getBoundingClientRect();
+        const cx = e.clientX - r.left; const cy = e.clientY - r.top;
+        const rx = (cy/r.height - .5) * -6; // rotação X
+        const ry = (cx/r.width  - .5) *  8; // rotação Y
+        card.style.transform = `perspective(800px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+      })
+      card.addEventListener('mouseleave', ()=> card.style.transform='translateY(-3px)');
+    })
+
+    // Chat básico com regras (sem backend)
+    const chat = document.getElementById('chat');
+    const openChatBtn = document.getElementById('open-chat');
+    const log = document.getElementById('log');
+    const form = document.getElementById('chat-form');
+    const input = document.getElementById('chat-input');
+
+    openChatBtn.addEventListener('click', ()=>{
+      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+      if(chat.style.display==='flex') input.focus();
+    });
+
+    function pushMsg(text, who='user'){
+      const m = document.createElement('div');
+      m.className = `msg ${who==='ai'?'ai':'user'}`;
+      m.textContent = text;
+      log.appendChild(m);
+      log.scrollTop = log.scrollHeight;
+    }
+
+    const intents = [
+      {k:/\b(oi|olá|boa\s*(tarde|noite|dia))\b/i, r: ()=> 'Oi! Como posso ajudar hoje? Posso explicar serviços, prazos, valores aproximados e como começamos.'},
+      {k:/servi(ç|c)os?|o que (voc(e|ês)) fazem/i, r: ()=> 'Fazemos: Branding, Sites/Landing Pages, Conteúdo (foto/vídeo), Social Media, Tráfego Pago e Automação/Chat com IA.'},
+      {k:/pre(ç|c)o|quanto custa|valor/i, r: ()=> 'Trabalhamos por escopo. Após um diagnóstico gratuito, montamos um pacote sob medida. Quer iniciar um orçamento? Diga seu segmento e objetivo.'},
+      {k:/prazo|quanto tempo/i, r: ()=> 'Prazos médios: Landing simples 1–2 semanas; Identidade 1–3 semanas; Social e Ads são contínuos.'},
+      {k:/ia|intelig(ê|e)ncia artificial/i, r: ()=> 'Usamos IA para pesquisa, criação assistida de copy/criativo, otimização de campanhas e atendimento básico aqui no site. Sempre com curadoria humana.'},
+      {k:/ifood/i, r: ()=> 'Não atendemos só iFood! Atendemos lojas e empresas em geral: físicos, serviços, e‑commerce e marcas locais.'},
+      {k:/contato|instagram|whats/i, r: ()=> 'Você pode falar com a gente no Instagram: @inovahubbr. Se preferir, me passe seu nome e e‑mail/Whats e eu encaminho.'},
+      {k:/come(ç|c)ar|or(ç|c)a?mento|diagn(ó|o)stico/i, r: ()=> 'Perfeito! Me diga: 1) Seu segmento, 2) Cidade/atuação, 3) Principal objetivo (ex.: gerar leads, aumentar pedidos), 4) Prazo ideal.'},
+    ];
+
+    form.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      const q = input.value.trim();
+      if(!q) return;
+      pushMsg(q, 'user');
+      input.value='';
+
+      // Geração de resposta por intenção simples
+      let answer = null;
+      for(const it of intents){
+        if(it.k.test(q)){ answer = it.r(q); break; }
+      }
+      if(!answer){
+        answer = 'Entendi! Posso te explicar serviços, prazos e valores aproximados. Se preferir falar direto com a equipe, toque em Instagram: @inovahubbr.';
+      }
+      setTimeout(()=> pushMsg(answer, 'ai'), 300);
+    });
+
+    // Acessibilidade: fechar chat com ESC
+    document.addEventListener('keydown', (e)=>{
+      if(e.key==='Escape' && chat.style.display==='flex') chat.style.display='none';
+    })
+
+    // Segurança leve: impedir arrastar texto dentro do chat (evita seleção acidental em mobile)
+    log.addEventListener('mousedown', e=>{ if(e.target.classList.contains('msg')) e.preventDefault() })
+  </script>
+
+  <footer>
+    <div class="section wrap-narrow" style="padding:2.5rem 1rem">
+      <div class="grid" style="align-items:center">
+        <div class="card" style="grid-column: span 8">
+          <h3>Pronto para acelerar?</h3>
+          <p class="muted">Fale com a gente e receba um diagnóstico gratuito. <a href="https://instagram.com/inovahubbr" target="_blank" rel="noopener">@inovahubbr</a></p>
+        </div>
+        <div class="card" style="grid-column: span 4; text-align:center">
+          <a class="btn primary" href="https://instagram.com/inovahubbr" target="_blank" rel="noopener">Chamar no Instagram</a>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div style="display:flex;gap:1rem;justify-content:space-between;flex-wrap:wrap">
+        <span class="muted">© <span id="y"></span> InovaHub. Todos os direitos reservados.</span>
+        <span class="pill">Feito com <span aria-hidden="true">🧠</span> IA + <span aria-hidden="true">❤️</span> humano</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>

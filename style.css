@@ -1,0 +1,116 @@
+/* ===== RESPONSIVIDADE ===== */
+
+/* Ajustes gerais para telas até 1024px (tablets) */
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .hero {
+    padding: 60px 20px;
+    text-align: center;
+  }
+
+  .about, .services, .contact {
+    padding: 40px 20px;
+  }
+}
+
+/* Ajustes para celulares até 768px */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+
+  .navbar {
+    padding: 10px;
+  }
+
+  .navbar h1 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  .navbar ul {
+    gap: 8px;
+  }
+
+  .navbar ul li a {
+    font-size: 14px;
+    padding: 5px 8px;
+  }
+
+  .hero h2 {
+    font-size: 24px;
+    line-height: 1.3;
+  }
+
+  .hero p {
+    font-size: 14px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .services {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .service {
+    padding: 15px;
+    font-size: 14px;
+  }
+
+  .about p, .contact p {
+    font-size: 14px;
+  }
+
+  .footer {
+    font-size: 12px;
+    text-align: center;
+  }
+}
+
+/* Ajustes para celulares bem pequenos (até 480px) */
+@media (max-width: 480px) {
+  .navbar h1 {
+    font-size: 18px;
+  }
+
+  .navbar ul {
+    gap: 5px;
+  }
+
+  .navbar ul li a {
+    font-size: 12px;
+    padding: 5px;
+  }
+
+  .hero h2 {
+    font-size: 20px;
+  }
+
+  .hero p {
+    font-size: 13px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
+
+  .service {
+    font-size: 13px;
+  }
+}
